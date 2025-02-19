@@ -1,3 +1,4 @@
+import 'package:app/pages/home_page.dart';
 import 'package:app/pages/product/index_product.dart';
 import 'package:app/provider/product_provider.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ProductProvider()),
       ],
       child: MaterialApp(
-        home: IndexProduct(),
+        home: HomePage(),
       ),
     );
   }

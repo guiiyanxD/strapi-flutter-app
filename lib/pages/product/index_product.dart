@@ -40,8 +40,8 @@ class _IndexProductState extends State<IndexProduct> {
                 return ListTile(
                   leading: const Icon(Icons.shopping_cart),
                   title: Text(product.name),
-                  subtitle: Text(product.description),
-                  trailing: Text(product.price.toString()),
+                  subtitle: Text("${product.description}, el id es: ${product.id}"),
+                  trailing: Text("\$${product.price.toString()}"),
                 );
           });
         }
