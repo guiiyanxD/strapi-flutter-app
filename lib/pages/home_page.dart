@@ -1,3 +1,4 @@
+import 'package:app/widgets/card_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,19 +10,29 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color.fromARGB(250, 180, 110, 12),
         title: SafeArea(
-            child: Center(
-              child: Padding(
-                  padding: EdgeInsets.only(top: 15),
-                child: Text("Aplicacion de ventas"),
-              ),
-            )
+          child: Padding(
+            padding: EdgeInsets.only(top: 15),
+            child: Text("Aplicacion de ventas"),
+          ),
         ),
       ),
       body: Padding(
         padding: EdgeInsets.only(top: 1),
-        child: Center(
-          child: Text("Hola Mundo"),
-        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            CardWidget(
+              title: "Opciones de Productos",
+              icon: Icons.arrow_forward_ios,
+              subtitle: "Aqui puede hacer operaciones de productos",
+            ),
+            CardWidget(
+              title: "Opciones de Ventas",
+              icon: Icons.arrow_forward_ios,
+              subtitle: "Aqui puede hacer operaciones de ventas",
+            ),
+          ],
+        )
       ),
     );
   }

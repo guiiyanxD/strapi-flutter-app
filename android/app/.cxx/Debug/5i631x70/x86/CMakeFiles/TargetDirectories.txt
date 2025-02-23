@@ -1,0 +1,2 @@
+C:/willi/Escritorio/strapi-project/strapi-flutter-app/android/app/.cxx/Debug/5i631x70/x86/CMakeFiles/edit_cache.dir
+C:/willi/Escritorio/strapi-project/strapi-flutter-app/android/app/.cxx/Debug/5i631x70/x86/CMakeFiles/rebuild_cache.dir
