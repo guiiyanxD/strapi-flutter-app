@@ -2,6 +2,7 @@ import 'package:app/pages/home_page.dart';
 import 'package:app/pages/product/index_product.dart';
 import 'package:app/provider/product_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -18,10 +19,22 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => ProductProvider()),
       ],
-      child: MaterialApp(
-        home: HomePage(),
-      ),
-    );
+      child: MaterialApp.router(
+        routerConfig: GoRouter(
+          initialLocation: '/home',
+          routes: [
+            GoRoute(
+              path: '/productMenu',
+              builder: (context, state) => const IndexProduct(),),
+            GoRoute(
+              path: '/SaleMenu',
+              builder: (context, state) => const IndexProduct(),),
+            GoRoute(
+              path: '/home',
+              builder: (context, state) => HomePage(),),
+          ]),
+        ),
+      );
   }
 }
 

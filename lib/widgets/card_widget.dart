@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 class CardWidget extends StatelessWidget {
   final String title;
   final String subtitle;
   final IconData icon;
+  final String route;
 
-  const CardWidget({super.key, required this.title, required this.icon, this.subtitle = ""});
+  const CardWidget({super.key, required this.title, required this.icon,required this.route, this.subtitle = ""});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class CardWidget extends StatelessWidget {
               ),
               subtitle: Text(subtitle),
               trailing: IconButton(
-                  onPressed: (){},
+                  onPressed: ()=> context.push(this.route),
                   icon: Icon(icon)),
             )
           ],

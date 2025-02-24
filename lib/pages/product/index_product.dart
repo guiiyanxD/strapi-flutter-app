@@ -26,7 +26,7 @@ class _IndexProductState extends State<IndexProduct> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Lista de Productos"),
-        leading: Icon(Icons.business_center),
+        //leading: Icon(Icons.business_center),
       ),
       body: Consumer<ProductProvider>(builder: (context, value, child){
         if(value.isLoading){

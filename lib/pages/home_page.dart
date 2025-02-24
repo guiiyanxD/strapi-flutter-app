@@ -25,11 +25,13 @@ class HomePage extends StatelessWidget {
               title: "Opciones de Productos",
               icon: Icons.arrow_forward_ios,
               subtitle: "Aqui puede hacer operaciones de productos",
+              route: "/productMenu",
             ),
             CardWidget(
               title: "Opciones de Ventas",
               icon: Icons.arrow_forward_ios,
               subtitle: "Aqui puede hacer operaciones de ventas",
+              route: "/SaleMenu",
             ),
           ],
         )
