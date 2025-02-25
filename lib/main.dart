@@ -1,5 +1,6 @@
 import 'package:app/pages/home_page.dart';
 import 'package:app/pages/product/index_product.dart';
+import 'package:app/pages/product/menu_product.dart';
 import 'package:app/provider/product_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
           routes: [
             GoRoute(
               path: '/productMenu',
-              builder: (context, state) => const IndexProduct(),),
+              builder: (context, state) => const MenuProduct(),),
             GoRoute(
               path: '/SaleMenu',
               builder: (context, state) => const IndexProduct(),),
