@@ -1,6 +1,7 @@
+import 'package:app/pages/product/index_product.dart';
 import 'package:app/widgets/card_widget.dart';
 import 'package:flutter/material.dart';
-
+import 'package:go_router/go_router.dart';
 class MenuProduct extends StatelessWidget {
   const MenuProduct({super.key});
 
@@ -15,33 +16,6 @@ class MenuProduct extends StatelessWidget {
           body: Column(
             children: [
               Container(
-                height: size.height*0.20,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 10,
-                    itemBuilder: (context, index){
-                      return Padding(
-                          padding: EdgeInsets.all(5),
-                          child: Container(
-                            width: size.width*0.40,
-                            height: size.height*0.15,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              color: Colors.blue,
-                            ),
-                            child: ListTile(
-                              leading: Icon(Icons.edit),
-                              title: Text("Opciones"),
-                              subtitle: Text("Subtitulo de opciones"),
-                              onTap: (){
-                                Navigator.pop(context);
-                              },
-                            ),
-                          )
-                      );
-                    }),
-              ),
-              Container(
                 height: size.height*0.10,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -55,13 +29,14 @@ class MenuProduct extends StatelessWidget {
                     ),
                     Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16),
-                      child: FloatingActionButton(
+                      child: FloatingActionButton.extended(
                         onPressed: (){
-                          //Navigator.pop(context);
+                          context.push("/product/index");
                           print("HolaMundo");
                         },
                         splashColor: Colors.amber,
-                        child: Icon(Icons.add),
+                        // icon: Icon(Icons.add),
+                        label: Text("Ver todos"),
                       ),
                     )
                   ],

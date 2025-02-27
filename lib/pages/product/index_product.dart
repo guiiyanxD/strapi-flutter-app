@@ -36,13 +36,19 @@ class _IndexProductState extends State<IndexProduct> {
           return ListView.builder(
               itemCount: products.length,
               itemBuilder:(context, index){
-                final product = products[index];
-                return ListTile(
+                if(products.isEmpty){
+                  return ListTile(
+                      title: Text("Lo sentimos no se ha encontrado productos"),
+                  );
+                }else{
+                  final product = products[index];
+                  return ListTile(
                   leading: const Icon(Icons.shopping_cart),
                   title: Text(product.name),
                   subtitle: Text("${product.description}, el id es: ${product.id}"),
-                  trailing: Text("\$${product.price.toString()}"),
-                );
+                  trailing: Text("\$${product.price.toString()}")
+                  );
+                }
           });
         }
       }),

@@ -28,6 +28,9 @@ class MyApp extends StatelessWidget {
               path: '/productMenu',
               builder: (context, state) => const MenuProduct(),),
             GoRoute(
+              path: '/product/index',
+              builder: (context, state) => const IndexProduct(),),
+            GoRoute(
               path: '/SaleMenu',
               builder: (context, state) => const IndexProduct(),),
             GoRoute(
