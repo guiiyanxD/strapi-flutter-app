@@ -17,7 +17,8 @@ class _IndexProductState extends State<IndexProduct> {
     // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timestamp){
-      Provider.of<ProductProvider>(context, listen: false).getAllProducts();
+      bool lastTen = false;
+      Provider.of<ProductProvider>(context, listen: false).getAllProducts(lastTen);
     });
   }
 

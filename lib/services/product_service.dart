@@ -14,11 +14,21 @@ class ProductService{
   /**
    * La funcion devuelve una lista de productos
    */
-  Future<List<Product>> getProducts() async{
+  Future<List<Product>> getProducts(lastTen) async{
     try{
-      final response = await _dio.get('/products').timeout(Duration(seconds: 10), onTimeout: (){
+      final Response<dynamic> response;
+      print("${lastTen} Service");
+      if(lastTen == true){
+        print("Entro al if de service");
+        response = await _dio.get('/products?sort=name:desc&pagination[limit]=10').timeout(Duration(seconds: 30), onTimeout: (){
         return throw Exception('Timeout');
-      });
+        });
+      }else{
+        response = await _dio.get('/products',)
+            .timeout(Duration(seconds: 10), onTimeout: (){
+          return throw Exception('Timeout');
+        });
+      }
       final List<dynamic> data = response.data['data'];
       return data.map((product) => Product.fromJson(product)).toList();
     }catch(e){

@@ -10,12 +10,13 @@ class ProductProvider extends ChangeNotifier{
 
   List<Product> get getProducts => _products;
 
-  Future<void> getAllProducts() async{
+  Future<void> getAllProducts([bool lastTen = false]) async{
     isLoading = true;
     notifyListeners();
 
     try{
-      final response = await _service.getProducts();
+      print("${lastTen} Provider");
+      final response = await _service.getProducts(lastTen);
 
       _products = response;
       isLoading = false;
@@ -28,4 +29,5 @@ class ProductProvider extends ChangeNotifier{
       throw Exception('Error al cargar los productos');
     }
   }
+
 }
