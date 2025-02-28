@@ -16,7 +16,9 @@ class ProductService{
    */
   Future<List<Product>> getProducts() async{
     try{
-      final response = await _dio.get('/products');
+      final response = await _dio.get('/products').timeout(Duration(seconds: 10), onTimeout: (){
+        return throw Exception('Timeout');
+      });
       final List<dynamic> data = response.data['data'];
       return data.map((product) => Product.fromJson(product)).toList();
     }catch(e){

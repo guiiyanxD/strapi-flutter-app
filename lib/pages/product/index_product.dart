@@ -31,25 +31,26 @@ class _IndexProductState extends State<IndexProduct> {
       body: Consumer<ProductProvider>(builder: (context, value, child){
         if(value.isLoading){
           return const Center(child: CircularProgressIndicator(),);
+        }else if(value.theresError){
+          return const Center(child: Text("Error al cargar los productos"),);
         }else{
           final products = value.getProducts;
-          return ListView.builder(
+          if(products.isNotEmpty){
+            return ListView.builder(
               itemCount: products.length,
               itemBuilder:(context, index){
-                if(products.isEmpty){
-                  return ListTile(
-                      title: Text("Lo sentimos no se ha encontrado productos"),
-                  );
-                }else{
-                  final product = products[index];
-                  return ListTile(
-                  leading: const Icon(Icons.shopping_cart),
-                  title: Text(product.name),
-                  subtitle: Text("${product.description}, el id es: ${product.id}"),
-                  trailing: Text("\$${product.price.toString()}")
-                  );
-                }
-          });
+                final product = products[index];
+                return ListTile(
+                    leading: const Icon(Icons.shopping_cart),
+                    title: Text(product.name),
+                    subtitle: Text("${product.description}, el id es: ${product.id}"),
+                    trailing: Text("\$${product.price.toString()}")
+                );
+              }
+            );
+          }else{
+            return const Center(child: Text("No existen productos"),);
+          }
         }
       }),
     );
