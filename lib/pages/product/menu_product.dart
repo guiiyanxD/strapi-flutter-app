@@ -35,11 +35,29 @@ class MenuProduct extends StatelessWidget {
                           print("HolaMundo");
                         },
                         splashColor: Colors.amber,
-                        // icon: Icon(Icons.add),
                         label: Text("Ver todos"),
                       ),
-                    )
+                    ),
                   ],
+                ),
+              ),
+              Expanded(
+                  child: ListView.builder(
+                      itemCount: 10,
+                      itemBuilder: (context, index){
+                        return CardWidget(
+                          title: "Producto $index",
+                          icon: Icons.arrow_forward_ios,
+                          route: "/product/index",
+                        );
+                      }
+                  )
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
+                child: ElevatedButton(
+                    onPressed: (){},
+                    child: Text("Agregar Producto")
                 ),
               )
             ],
