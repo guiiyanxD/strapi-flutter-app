@@ -5,7 +5,7 @@ import '../services/product_service.dart';
 class ProductProvider extends ChangeNotifier{
   final _service = ProductService();
   bool isLoading = false;
-  bool theresError = false;
+  bool hasError = false;
   List<Product> _products = [];
 
   List<Product> get getProducts => _products;
@@ -23,7 +23,7 @@ class ProductProvider extends ChangeNotifier{
     }catch(e){
       print(e);
       isLoading = false;
-      theresError = true;
+      hasError = true;
       notifyListeners();
       throw Exception('Error al cargar los productos');
     }

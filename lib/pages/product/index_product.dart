@@ -31,7 +31,7 @@ class _IndexProductState extends State<IndexProduct> {
       body: Consumer<ProductProvider>(builder: (context, value, child){
         if(value.isLoading){
           return const Center(child: CircularProgressIndicator(),);
-        }else if(value.theresError){
+        }else if(value.hasError){
           return const Center(child: Text("Error al cargar los productos"),);
         }else{
           final products = value.getProducts;

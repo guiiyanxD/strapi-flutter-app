@@ -22,7 +22,7 @@ class ProductService{
       final List<dynamic> data = response.data['data'];
       return data.map((product) => Product.fromJson(product)).toList();
     }catch(e){
-      throw 'Failed loading products: ${e.toString()}';
+      throw 'Failed loading products by timeout: ${e.toString()}';
     }
   }
 
