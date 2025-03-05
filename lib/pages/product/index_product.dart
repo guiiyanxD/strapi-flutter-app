@@ -44,8 +44,15 @@ class _IndexProductState extends State<IndexProduct> {
                 return ListTile(
                     leading: const Icon(Icons.shopping_cart),
                     title: Text(product.name),
-                    subtitle: Text("${product.description}, el id es: ${product.id}"),
-                    trailing: Text("\$${product.price.toString()}")
+                    subtitle: Text("\$${product.price.toString()}"),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(onPressed: (){}, icon: const Icon(Icons.add_shopping_cart)),
+                        IconButton(onPressed: (){}, icon: const Icon(Icons.edit)),
+                        IconButton(onPressed: (){}, icon: const Icon(Icons.delete)),
+                      ],
+                    )
                 );
               }
             );
