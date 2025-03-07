@@ -10,12 +10,13 @@ class ProductProvider extends ChangeNotifier{
 
   List<Product> get getProducts => _products;
 
+
   Future<void> getAllProducts([bool lastTen = false]) async{
     isLoading = true;
     notifyListeners();
 
     try{
-      print("${lastTen} Provider");
+      print("${lastTen} last ten Provider");
       final response = await _service.getProducts(lastTen);
 
       _products = response;
