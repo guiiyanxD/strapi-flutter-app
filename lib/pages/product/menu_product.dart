@@ -34,7 +34,7 @@ class _MenuProductState extends State<MenuProduct> {
           title: Text("Menu de productos"),
         ),
         body: Consumer<ProductProvider>(builder: (context, value, child){
-          final products = value.getProducts;
+          final products = value.getLastTenProducts;
           //List<Product> reversed = products.reversed.toList();
           return Column(
             children: [
@@ -55,7 +55,6 @@ class _MenuProductState extends State<MenuProduct> {
                       child: FloatingActionButton.extended(
                         onPressed: (){
                           context.push("/product/index");
-                          print("HolaMundo");
                         },
                         splashColor: Colors.amber,
                         label: Text("Ver todos"),
@@ -68,6 +67,7 @@ class _MenuProductState extends State<MenuProduct> {
                   child: RefreshIndicator(
                     onRefresh: (){
                       print(products.take(4));
+                      // value.getAllProducts(true);
                       return Future.delayed(Duration(seconds: 2));
                     },
                     child: ListView.builder(

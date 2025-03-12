@@ -20,7 +20,10 @@ class ProductService{
       print("${lastTen} Service");
       if(lastTen == true){
         print("Entro al if de service");
-        response = await _dio.get('/products?pagination[limit]=10').timeout(Duration(seconds: 30), onTimeout: (){
+        response = await _dio.get('/products',queryParameters: {
+          'pagination[limit]' : 10,
+          'sort':'id:desc'
+        }).timeout(Duration(seconds: 30), onTimeout: (){
         return throw Exception('Timeout');
         });
       }else{

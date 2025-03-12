@@ -7,8 +7,11 @@ class ProductProvider extends ChangeNotifier{
   bool isLoading = false;
   bool hasError = false;
   List<Product> _products = [];
+  List<Product> _lastTenProducts = [];
 
+  List<Product> get getLastTenProducts => _lastTenProducts;
   List<Product> get getProducts => _products;
+
 
 
   Future<void> getAllProducts([bool lastTen = false]) async{
@@ -18,8 +21,11 @@ class ProductProvider extends ChangeNotifier{
     try{
       print("${lastTen} last ten Provider");
       final response = await _service.getProducts(lastTen);
-
-      _products = response;
+      if(lastTen){
+        _lastTenProducts = response;
+      }else{
+        _products = response;
+      }
       isLoading = false;
       notifyListeners();
     }catch(e){
